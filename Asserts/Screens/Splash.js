@@ -80,7 +80,7 @@
 
 
 import React, { useEffect, useRef } from 'react';
-import { StyleSheet, View, Image, Animated } from 'react-native';
+import { StyleSheet, View, Image, Animated, StatusBar, } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -128,6 +128,8 @@ const Splash = ({ navigation }) => {
 
   return (
     <LinearGradient colors={['#f9f6ff', '#d6e8ff']} style={styles.container}>
+      <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
+
       <Animated.View
         style={[
           styles.logoContainer,
@@ -135,7 +137,7 @@ const Splash = ({ navigation }) => {
         ]}
       >
         <Image
-          source={require('../Images/mainlogosplash.png')}
+          source={require('../Images/onlaynwithoutbglogo.png')}
           style={styles.logo}
         />
       </Animated.View>
@@ -146,7 +148,7 @@ const Splash = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   logoContainer: { width: '90%', height: '100%', justifyContent: 'center', alignItems: 'center' },
-  logo: { width: 350, height: 350, borderRadius: 250 },
+  logo: { width: 360, height: 360, borderRadius: 250 },
 });
 
 export default Splash;

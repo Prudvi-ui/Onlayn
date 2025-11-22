@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  StatusBar,
 } from 'react-native';
 import { NavigationContainer, createNavigationContainerRef } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -16,7 +17,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { enableScreens } from 'react-native-screens';
 import LinearGradient from 'react-native-linear-gradient';
-import {CartProvider} from './Asserts/context';
+import { CartProvider } from './Asserts/context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRoute, useFocusEffect } from '@react-navigation/native';
 
@@ -52,6 +53,7 @@ import Invoice from './Asserts/Screens/Invoice';
 import Toast, { BaseToast, ErrorToast } from 'react-native-toast-message';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'; // 👈 add this
 import Nointernet from "./Asserts/Screens/Nointernet"
+import ExchangePolicy from "./Asserts/Screens/Exchangepolicy"
 enableScreens(); // Optional but improves performance
 
 const navigationRef = createNavigationContainerRef();
@@ -118,9 +120,11 @@ const TabStackNav = () => {
     }
   };
 
-useFocusEffect( useCallback(() => { fetchCartItems();
-   const interval = setInterval(() => { fetchCartItems();  }, 1000);
-    return () => clearInterval(interval); }, []) );
+  useFocusEffect(useCallback(() => {
+    fetchCartItems();
+    const interval = setInterval(() => { fetchCartItems(); }, 1000);
+    return () => clearInterval(interval);
+  }, []));
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -256,6 +260,7 @@ const toastConfig = {
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <CartProvider>
         <NavigationContainer ref={navigationRef}>
           <Stack.Navigator
@@ -297,6 +302,7 @@ export default function App() {
             <Stack.Screen name="TermsAndConditionsScreen" component={TermsAndConditionsScreen} options={{ headerShown: false }} />
             <Stack.Screen name="MyAddressScreen" component={MyAddressScreen} options={{ headerShown: false }} />
             <Stack.Screen name="Privacypolicy" component={PrivacyPolicy} options={{ headerShown: false }} />
+            <Stack.Screen name="ExchangePolicy" component={ExchangePolicy} options={{ headerShown: false }} />
             <Stack.Screen name="Ok" component={OrderConfirmedCard} options={{ headerShown: false }} />
             <Stack.Screen name="Invoice" component={Invoice} options={{ headerShown: false }} />
             <Stack.Screen name="AddressScreen" component={AddressScreen} options={{ headerShown: false }} />

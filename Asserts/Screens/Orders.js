@@ -9,7 +9,8 @@ import {
   SafeAreaView,
   ActivityIndicator,
   Alert,
-  Dimensions
+  Dimensions,
+StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -332,6 +333,7 @@ const MyOrdersScreen = ({ navigation }) => {
 
   return (
     <LinearGradient colors={['white', 'white']} style={styles.container}>
+      {/* <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" /> */}
       <SafeAreaView style={{ flex: 1 }}>
         {/* <View style={styles.header}>
           <View style={{ flexDirection: 'row' }}>
@@ -400,7 +402,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop:30
+    marginTop: 30
   },
   leftContainer: {
     flexDirection: 'row',

@@ -14,7 +14,8 @@ import {
     ActivityIndicator,
     Modal,
     Linking,
-    Pressable
+    Pressable,
+    StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Swiper from 'react-native-swiper';
@@ -111,23 +112,38 @@ const App = ({ navigation }) => {
             rating: 4,
             text: "Great variety of toys. The car set I bought was sturdy and safe. Excellent customer support as well.",
             name: "Rajiv K.",
-            avatar: "https://i.pravatar.cc/100?img=12",
+            avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=200&q=80",
         },
         {
             id: "2",
             rating: 5,
             text: "Absolutely love the toy quality! My little one plays with the plush bear every day. Great service too!",
             name: "Aarav’s Mom",
-            avatar: "https://i.pravatar.cc/100?img=48",
+            avatar: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80",
         },
         {
             id: "3",
             rating: 5,
             text: "Fast delivery and beautifully packed. The art set kept my kids busy for hours. Highly recommended!",
             name: "Reema D.",
-            avatar: "https://i.pravatar.cc/100?img=32",
+            avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=200",
+        },
+         {
+            id: "4",
+            rating: 5,
+            text: "Loved the building blocks! My nephew is obsessed. Super easy checkout and fast shipping.",
+            name: "Kiran P.",
+            avatar: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=200&q=80",
+        },
+         {
+            id: "5",
+            rating: 5,
+            text: "Fast delivery and beautifully packed. The art set kept my kids busy for hours. Highly recommended!",
+            name: "Manish",
+            avatar: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&h=200",
         },
     ];
+
     const features = [
         {
             id: 1,
@@ -796,7 +812,7 @@ const App = ({ navigation }) => {
         return (
             <LinearGradient colors={['#f9f6ff', '#d6e8ff']} style={styles.loadingContainer} >
                 <Image
-                    source={require('../Images/loadinglogo.png')}
+                    source={require('../Images/onlaynwithoutbglogo.png')}
                     style={styles.logo}
                 />
                 <View style={{ transform: [{ scale: 2 }] }}>
@@ -832,14 +848,15 @@ const App = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
             {/* Header */}
             <View style={styles.header}>
-                <TouchableOpacity  style={{marginLeft:15}} onPress={() => navigation.navigate("Products")}>
+                <TouchableOpacity style={{ marginLeft: 15 }} onPress={() => navigation.navigate("Products")}>
                     <Icon name="magnify" size={34} color={"navy"} />
                 </TouchableOpacity>
                 <View style={{ alignItems: 'center' }}>
                     <Image
-                        source={require('../Images/loadinglogo.png')}
+                        source={require('../Images/onlaynwithoutbglogo.png')}
                         style={styles.logo1}
                     />
                 </View>
@@ -853,7 +870,7 @@ const App = ({ navigation }) => {
                 </TouchableOpacity>
             </View>
             <View style={{ alignItems: 'center', }}>
-                <TouchableOpacity style={{marginRight:15}} onPress={() => setModalVisible(true)}>
+                <TouchableOpacity style={{ marginRight: 15 }} onPress={() => setModalVisible(true)}>
                     <Text style={styles.linkText}> 📍 Verify Delivery Location</Text>
                 </TouchableOpacity>
             </View>
@@ -862,15 +879,14 @@ const App = ({ navigation }) => {
                     {/* LEFT SECTION */}
 
                     <View style={styles.leftSection1}>
-                        <Text style={styles.stars1}>⭐⭐⭐⭐⭐ Trusted by 10k+ families</Text>
+                        <Text style={styles.stars1}>⭐⭐⭐⭐⭐ Loved and trusted by many families</Text>
 
                         <Text style={styles.heading1}>
-                            Everything Your <Text style={styles.highlight1}>Little One</Text> Needs
+                            Big Joy for <Text style={styles.highlight1}> Small Hands</Text>. Unboxing Their Happiness
                         </Text>
 
                         <Text style={styles.subText1}>
-                            Discover premium quality toys, comfortable diapers, and adorable
-                            dresses that bring joy to every moment of childhood.
+                            Explore playful toys that inspire creativity, spark imagination, and bring joyful moments to your little one’s everyday adventures.
                         </Text>
 
                         <View style={{ flexDirection: "row", gap: 10, alignItems: 'center', marginLeft: -11 }}>
@@ -1309,7 +1325,7 @@ const App = ({ navigation }) => {
                 <View style={{ alignItems: "center", marginTop: 20 }}>
                     <Text style={styles.heading4}>What Parents Are Saying</Text>
                     <Text style={styles.subHeading4}>
-                        Real Stories from families who love ToyShack.
+                        Real Stories from families who love Onlayn.
                     </Text>
                 </View>
                 <View style={styles.container4}>
@@ -1369,7 +1385,7 @@ const App = ({ navigation }) => {
                             style={styles.text6}
                             onPress={() => Linking.openURL("mailto:hello.toyshack@gmail.com")}
                         >
-                            hello.toyshack@gmail.com
+                            contact.onlayn@gmail.com
                         </Text>
                     </View>
 
@@ -1411,13 +1427,13 @@ const App = ({ navigation }) => {
 
                     {/* Social Media */}
                     <View style={styles.socialRow6}>
-                        <TouchableOpacity onPress={() => Linking.openURL("https://facebook.com")}>
+                        <TouchableOpacity onPress={() => Linking.openURL("https://www.facebook.com/share/1ERiyqNH6j/")}>
                             <Icon name="facebook" size={26} color="#0046c0" style={styles.icon} />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => Linking.openURL("https://instagram.com")}>
+                        <TouchableOpacity onPress={() => Linking.openURL("https://www.instagram.com/onlayn_toys?utm_source=qr&igsh=MXVzYnBwcWF2OHk5YQ==")}>
                             <Icon name="instagram" size={26} color="#ff5cb8" style={styles.icon} />
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => Linking.openURL("https://x.com")}>
+                        <TouchableOpacity onPress={() => Linking.openURL("https://x.com/onlayn_toys?t=fEDiB5dB1XdEYX0wC5TC9w&s=08")}>
                             <Icon name="twitter" size={26} color="#000" style={styles.icon} />
                         </TouchableOpacity>
                     </View>
@@ -1693,12 +1709,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
     logo: {
-        width: 190,
-        height: 50,
+        width: 290,
+        height: 130,
         // borderRadius: 250,
     },
     logo1: {
-        width: 175,
+        width: 185,
         height: 50,
         // borderRadius: 250,
     },

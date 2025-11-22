@@ -13,6 +13,7 @@ import {
   Alert,
   ActivityIndicator,
   Modal,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -207,13 +208,14 @@ export default function LoginSignupScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
         <ScrollView contentContainerStyle={{ paddingBottom: 20 }}>
-          <Image source={require('../Images/mainlogosplash.png')} style={styles.logo} resizeMode="contain" />
+          <Image source={require('../Images/onlaynwithoutbglogo.png')} style={styles.logo} resizeMode="contain" />
 
           <View style={styles.tabContainer}>
             <TouchableOpacity onPress={() => setIsLogin(true)}>
@@ -354,8 +356,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e5d4ff',
   },
   logo: {
-    width: 240,
-    height: 240,
+    width: 280,
+    height: 280,
     alignSelf: 'center',
     marginBottom: 10,
   },

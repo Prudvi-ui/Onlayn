@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView,TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -10,65 +10,164 @@ export default function PrivacyPolicy({ navigation }) {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="menu-left" size={34} color="#333" />
         </TouchableOpacity>
-      </View>
-      <ScrollView contentContainerStyle={styles.scrollContent}>
         <Text style={styles.title}>Privacy Policy</Text>
+        <Text style={styles.title}>    </Text>
+      </View>
+
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+
         <Text style={styles.paragraph}>
-          At <Text style={{ flexDirection: 'row', alignItems: 'center', alignSelf: 'center', lineHeight: 22,}}>
-            <Text style={styles.highlight}>Toy</Text>
-            <Text style={styles.highlight1}>Shack</Text></Text>, your privacy is very important to us.
-          This Privacy Policy explains how we collect, use, and protect your personal information
-          when you use our app and services.
+          <Text style={styles.bold}>Last Updated: 17th November 2025{"\n"}</Text>
         </Text>
 
-        <Text style={styles.sectionTitle}>📌 Information We Collect</Text>
+        {/* 1. Introduction */}
+        <Text style={styles.sectionTitle}>1. Introduction</Text>
+        <Text style={styles.paragraph}>
+          This Privacy Policy describes how Novelty Technologies ("we," "us," or "our")
+          collects and uses personal data when you use our
+          <Text
+            style={{ color: 'navy' }}
+            onPress={() => Linking.openURL('https://onlayn.toys/')}
+          >
+            {" "}website
+          </Text>
+          {" "}and{" "}
+          <Text
+            style={{ color: 'navy' }}
+            onPress={() => Linking.openURL('https://onlayn.toys/')}
+          >
+            mobile application{" "}
+          </Text>.
+          By using our services, you consent to the data practices described in this policy.
+        </Text>
+
+
+        {/* 2. The Information We Collect */}
+        <Text style={styles.sectionTitle}>2. The Information We Collect</Text>
+
+        <Text style={styles.subSection}>A. Data You Provide Directly:</Text>
+
         <View style={styles.listItem}>
           <Icon name="account-outline" size={22} color="#ff6f00" />
-          <Text style={styles.listText}>Basic details such as name, email, and phone number</Text>
+          <Text style={styles.listText}>
+            Identity & Contact Data: Full name, email address, and phone number.
+          </Text>
         </View>
+
         <View style={styles.listItem}>
           <Icon name="map-marker-outline" size={22} color="#ff6f00" />
-          <Text style={styles.listText}>Delivery address and location details</Text>
+          <Text style={styles.listText}>
+            Delivery Data: Shipping and saved delivery addresses.
+          </Text>
         </View>
+
         <View style={styles.listItem}>
-          <Icon name="cart-outline" size={22} color="#ff6f00" />
-          <Text style={styles.listText}>Order history and shopping preferences</Text>
+          <Icon name="message-outline" size={22} color="#ff6f00" />
+          <Text style={styles.listText}>
+            Communications: Information provided during customer support.
+          </Text>
         </View>
+
+        <Text style={styles.subSection}>B. Data We Collect Automatically (Usage Data):</Text>
+
         <View style={styles.listItem}>
-          <Icon name="lock-outline" size={22} color="#ff6f00" />
-          <Text style={styles.listText}>Payment information (securely processed)</Text>
+          <Icon name="cellphone" size={22} color="#ff6f00" />
+          <Text style={styles.listText}>
+            Device Data: IP address, device model, OS, and App version.
+          </Text>
         </View>
 
-        <Text style={styles.sectionTitle}>🔐 How We Use Your Data</Text>
+        <View style={styles.listItem}>
+          <Icon name="history" size={22} color="#ff6f00" />
+          <Text style={styles.listText}>
+            Usage Data: Pages viewed, products searched, and interactions.
+          </Text>
+        </View>
+
+        {/* 3. How We Use Your Data */}
+        <Text style={styles.sectionTitle}>3. How We Use Your Data</Text>
         <Text style={styles.paragraph}>
-          We use your data to:
-          • Process orders and deliver products
-          • Provide customer support
-          • Improve our services and user experience
-          • Share offers, promotions, and updates (with your consent)
+          We use your personal data for the following:
         </Text>
 
-        <Text style={styles.sectionTitle}>🛡️ Data Protection</Text>
+        <Text style={styles.bullet}>• To create and manage your account</Text>
+        <Text style={styles.bullet}>• To process and deliver your orders</Text>
+        <Text style={styles.bullet}>• To communicate updates and confirmations</Text>
+        <Text style={styles.bullet}>• To send promotional messages</Text>
+        <Text style={styles.bullet}>• To analyze App usage and improve services</Text>
+
+        {/* 4. Who We Share Your Data With */}
+        <Text style={styles.sectionTitle}>4. Who We Share Your Data With</Text>
+
         <Text style={styles.paragraph}>
-          We implement industry-standard security measures to keep your information safe.
-          We never sell or share your personal data with unauthorized third parties.
+          We do NOT sell your personal data. We share it only with:
         </Text>
 
-        <Text style={styles.sectionTitle}>⚖️ Your Rights</Text>
+        <View style={styles.listItem}>
+          <Icon name="bike-fast" size={22} color="#ff6f00" />
+          <Text style={styles.listText}>
+            Delivery Partners: To complete and verify deliveries.
+          </Text>
+        </View>
+
+        <View style={styles.listItem}>
+          <Icon name="shield-check-outline" size={22} color="#ff6f00" />
+          <Text style={styles.listText}>
+            Legal Authorities: Only when required for legal or safety reasons.
+          </Text>
+        </View>
+
+        {/* 5. Your Rights */}
+        <Text style={styles.sectionTitle}>5. Your Rights</Text>
+
+        <Text style={styles.bullet}>• Right to Access your stored data</Text>
+        <Text style={styles.bullet}>• Right to Correct inaccurate information</Text>
+        <Text style={styles.bullet}>• Right to Erase your data via email request</Text>
+        <Text style={styles.bullet}>• Right to Withdraw Consent anytime</Text>
+
         <Text style={styles.paragraph}>
-          You have the right to:
-          • Access and update your personal information
-          • Request deletion of your data
-          • Opt out of promotional communications
+          To request data deletion, email us at:
+          <Text style={styles.bold}> contact.onlayn@gmail.com</Text>.
+          We will respond within 7 working days.
         </Text>
 
-        <Text style={styles.sectionTitle}>📞 Contact Us</Text>
-        <Text style={styles.contact}>Email: hello.toyshack@gmail.com</Text>
-        <Text style={styles.contact}>Phone: 8121304888 (or) 8121301888</Text>
-        <Text style={styles.contact}>Website: https://toyshack.in/</Text>
+        {/* 6. Data Security */}
+        <Text style={styles.sectionTitle}>6. Data Security</Text>
+        <Text style={styles.paragraph}>
+          We use modern security measures including encryption and secure servers.
+          However, no internet-based system is 100% secure.
+        </Text>
+
+        {/* 7. Data Retention */}
+        <Text style={styles.sectionTitle}>7. Data Retention</Text>
+        <Text style={styles.paragraph}>
+          We retain your data only as long as necessary to fulfill service obligations
+          or as required by law (e.g., tax purposes).
+        </Text>
+
+        {/* 8. Children's Data */}
+        <Text style={styles.sectionTitle}>8. Children's Data</Text>
+        <Text style={styles.paragraph}>
+          Our services are not intended for individuals under 18.
+          If a child has provided information, please notify us immediately.
+        </Text>
+
+        {/* 9. Grievance Officer */}
+        <Text style={styles.sectionTitle}>9. Grievance Officer & Contact Information</Text>
+        <Text style={styles.paragraph}>
+          Name: M Sudheer{"\n"}
+          Email: contact.onlayn@gmail.com
+        </Text>
+
+        {/* 10. Changes */}
+        <Text style={styles.sectionTitle}>10. Changes to This Policy</Text>
+        <Text style={styles.paragraph}>
+          We may update this Privacy Policy occasionally. Updates will be posted on the App
+          and Website or shared through email notifications.
+        </Text>
 
         <Text style={styles.footer}>
-          👉 We value your trust and are committed to protecting your privacy.
+          👉 We value your privacy and are committed to protecting your data.
         </Text>
       </ScrollView>
     </LinearGradient>
@@ -76,20 +175,16 @@ export default function PrivacyPolicy({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  scrollContent: {
-    padding: 20,
-    paddingBottom: 40,
-    marginTop: 20
-  },
+  container: { flex: 1 },
+  scrollContent: { padding: 20, paddingBottom: 40, marginTop: 20 },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    marginTop: 20,
+    // paddingHorizontal: 16,
+    // paddingVertical: 10,
+    marginTop: 30,
+    justifyContent:'space-between',
+    margin:10
   },
   title: {
     fontSize: 26,
@@ -97,31 +192,28 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 10,
     textAlign: 'center',
-    marginTop:-20
   },
   paragraph: {
     fontSize: 16,
     color: '#444',
     lineHeight: 22,
-    marginBottom: 20,
+    // marginBottom: 20,
+    marginTop: 10,
     textAlign: 'justify',
   },
-  highlight: {
-    color: 'navy',
-    fontWeight: '500',
-    top: 3
-  },
-  highlight1: {
-    color: '#ff4fd8',
-    fontWeight: '500',
-    top: 3
-  },
+  bold: { fontWeight: '700' },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
     color: '#222',
     marginTop: 15,
-    marginBottom: 10,
+    // marginBottom: ,
+  },
+  subSection: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 8,
+    color: '#333',
   },
   listItem: {
     flexDirection: 'row',
@@ -135,10 +227,11 @@ const styles = StyleSheet.create({
     flex: 1,
     flexWrap: 'wrap',
   },
-  contact: {
+  bullet: {
     fontSize: 15,
     color: '#333',
-    marginBottom: 4,
+    marginLeft: 8,
+    marginBottom: 5,
   },
   footer: {
     marginTop: 20,

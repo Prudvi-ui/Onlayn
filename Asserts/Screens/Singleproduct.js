@@ -10,7 +10,8 @@ import {
   Dimensions,
   ActivityIndicator,
   Pressable,
-  Modal
+  Modal,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -557,6 +558,7 @@ export default function ProductDetailScreen({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
+      <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="menu-left" size={34} color="#333" />
@@ -706,7 +708,7 @@ export default function ProductDetailScreen({ navigation }) {
           />
         </View>
       </Modal>
-      <View style={{ flexDirection: 'row', left:15, marginTop: 10 }}>
+      <View style={{ flexDirection: 'row', left: 15, marginTop: 10 }}>
         {images.map((img, index) => (
           <TouchableOpacity
             key={index}
@@ -961,7 +963,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     margin: 16,
-    marginTop: 40,
+    marginTop: 45,
   },
   headerTitle: { fontSize: 18, fontWeight: 'bold' },
   imageCard: {

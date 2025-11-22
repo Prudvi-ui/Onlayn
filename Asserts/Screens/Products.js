@@ -780,7 +780,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         bottom: 80, // adjust if covered by bottom tab
         right: 20,
-        backgroundColor: 'navy',
+        backgroundColor: '#ff4da6',
         borderRadius: 30,
         width: 50,
         height: 50,

@@ -514,7 +514,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 16,
         paddingVertical: 10,
-        marginTop: 20,
+        marginTop: 30,
     },
     title: {
         fontSize: 18,

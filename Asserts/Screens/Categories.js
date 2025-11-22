@@ -207,6 +207,7 @@ import {
   TouchableOpacity,
   TextInput,
   ActivityIndicator,
+  StatusBar,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import LinearGradient from 'react-native-linear-gradient';
@@ -279,6 +280,7 @@ const CategoryScreen = ({ navigation }) => {
 
   return (
     <LinearGradient colors={['white', 'white']} style={styles.container}>
+      <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -352,15 +354,15 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 1, height: 1 },
     shadowRadius: 2,
     marginBottom: 12,
-     borderWidth:0.8,
-    borderColor:"gray"
+    borderWidth: 0.8,
+    borderColor: "gray"
   },
   searchInput: {
     flex: 1,
     marginLeft: 8,
     fontSize: 14,
     color: '#333',
-   
+
 
   },
   grid: {

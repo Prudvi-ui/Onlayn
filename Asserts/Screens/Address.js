@@ -9,6 +9,7 @@ import {
     StyleSheet,
     SafeAreaView,
     Alert,
+    StatusBar,
     ActivityIndicator,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -126,66 +127,66 @@ const AddressScreen = ({ navigation }) => {
         </View>
     );
 
-  const handleDeleteAddress = async (addressId) => {
-    Alert.alert(
-        "Delete Address",
-        "Are you sure you want to delete this address?",
-        [
-            { text: "Cancel", style: "cancel" },
-            {
-                text: "Delete",
-                style: "destructive",
-                onPress: async () => {
-                    try {
-                        const customerId = await AsyncStorage.getItem('id');
-                        if (!customerId) {
-                            Toast.show({
-                                type: 'error',
-                                text1: 'Error',
-                                text2: 'User not logged in.'
-                            });
-                            return;
-                        }
-                        const response = await fetch(
-                            `https://apis.toyshack.in/App/customers/customer-address/${customerId}/${addressId}`,
-                            { method: 'DELETE' }
-                        );
-                        const data = await response.json();
+    const handleDeleteAddress = async (addressId) => {
+        Alert.alert(
+            "Delete Address",
+            "Are you sure you want to delete this address?",
+            [
+                { text: "Cancel", style: "cancel" },
+                {
+                    text: "Delete",
+                    style: "destructive",
+                    onPress: async () => {
+                        try {
+                            const customerId = await AsyncStorage.getItem('id');
+                            if (!customerId) {
+                                Toast.show({
+                                    type: 'error',
+                                    text1: 'Error',
+                                    text2: 'User not logged in.'
+                                });
+                                return;
+                            }
+                            const response = await fetch(
+                                `https://apis.toyshack.in/App/customers/customer-address/${customerId}/${addressId}`,
+                                { method: 'DELETE' }
+                            );
+                            const data = await response.json();
 
-                        if (response.ok) {
-                            Toast.show({
-                                type: 'success',
-                                text1: 'Deleted',
-                                text2: data.message || 'Address deleted successfully.'
-                            });
-                            setCustomers((prev) => {
-                                if (prev.length === 0) return prev;
-                                const updatedCustomer = { ...prev[0] };
-                                updatedCustomer.address = updatedCustomer.address.filter(
-                                    (addr) => addr._id !== addressId
-                                );
-                                return [updatedCustomer];
-                            });
-                        } else {
+                            if (response.ok) {
+                                Toast.show({
+                                    type: 'success',
+                                    text1: 'Deleted',
+                                    text2: data.message || 'Address deleted successfully.'
+                                });
+                                setCustomers((prev) => {
+                                    if (prev.length === 0) return prev;
+                                    const updatedCustomer = { ...prev[0] };
+                                    updatedCustomer.address = updatedCustomer.address.filter(
+                                        (addr) => addr._id !== addressId
+                                    );
+                                    return [updatedCustomer];
+                                });
+                            } else {
+                                Toast.show({
+                                    type: 'error',
+                                    text1: 'Error',
+                                    text2: data.error || 'Could not delete address.'
+                                });
+                            }
+                        } catch (error) {
+                            console.error('Error deleting address:', error);
                             Toast.show({
                                 type: 'error',
                                 text1: 'Error',
-                                text2: data.error || 'Could not delete address.'
+                                text2: 'Something went wrong.'
                             });
                         }
-                    } catch (error) {
-                        console.error('Error deleting address:', error);
-                        Toast.show({
-                            type: 'error',
-                            text1: 'Error',
-                            text2: 'Something went wrong.'
-                        });
-                    }
+                    },
                 },
-            },
-        ]
-    );
-};
+            ]
+        );
+    };
 
 
     const submitAddressToBackend = async () => {
@@ -280,6 +281,7 @@ const AddressScreen = ({ navigation }) => {
 
     return (
         <LinearGradient colors={['white', 'white']} style={styles.container}>
+            <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={styles.header}>
                     <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -366,7 +368,7 @@ const AddressScreen = ({ navigation }) => {
                                     placeholder="Apartment No."
                                     style={[styles.input, { flex: 1, marginRight: 5 }]}
                                     value={formData.apartment}
-                                     placeholderTextColor="black"
+                                    placeholderTextColor="black"
                                     onChangeText={(text) =>
                                         setFormData((prev) => ({ ...prev, apartment: text }))
                                     }
@@ -375,7 +377,7 @@ const AddressScreen = ({ navigation }) => {
                                     placeholder="Building Name"
                                     style={[styles.input, { flex: 1, marginLeft: 5 }]}
                                     value={formData.building}
-                                     placeholderTextColor="black"
+                                    placeholderTextColor="black"
                                     onChangeText={(text) =>
                                         setFormData((prev) => ({ ...prev, building: text }))
                                     }
@@ -386,9 +388,9 @@ const AddressScreen = ({ navigation }) => {
                                 placeholder="Street Name/Area"
                                 style={styles.input}
                                 value={formData.street}
-                                 placeholderTextColor="black"
+                                placeholderTextColor="black"
                                 onChangeText={(text) =>
-                                    
+
                                     setFormData((prev) => ({ ...prev, street: text }))
                                 }
                             />
@@ -398,7 +400,7 @@ const AddressScreen = ({ navigation }) => {
                                     placeholder="City"
                                     style={[styles.input, { flex: 1, marginRight: 5 }]}
                                     value={formData.city}
-                                     placeholderTextColor="black"
+                                    placeholderTextColor="black"
                                     onChangeText={(text) =>
                                         setFormData((prev) => ({ ...prev, city: text }))
                                     }
@@ -409,7 +411,7 @@ const AddressScreen = ({ navigation }) => {
                                         styles.input,
                                         !isPincodeValid && { borderColor: 'red', borderWidth: 1 },
                                     ]}
-                                     placeholderTextColor="black"
+                                    placeholderTextColor="black"
                                     value={formData.pincode}
                                     keyboardType="numeric"
                                     maxLength={6}
@@ -421,7 +423,7 @@ const AddressScreen = ({ navigation }) => {
                                 placeholder="State"
                                 style={styles.input}
                                 value={formData.state}
-                                 placeholderTextColor="black"
+                                placeholderTextColor="black"
                                 onChangeText={(text) =>
                                     setFormData((prev) => ({ ...prev, state: text }))
                                 }

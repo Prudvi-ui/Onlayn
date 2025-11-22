@@ -11,6 +11,7 @@ import {
   Alert,
   ActivityIndicator,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -468,6 +469,8 @@ const CartScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
+
       <View style={styles.header}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon name="menu-left" size={36} color="#333" />
