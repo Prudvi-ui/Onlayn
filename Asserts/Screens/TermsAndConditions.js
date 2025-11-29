@@ -192,11 +192,11 @@ const TermsAndConditionsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   content: { paddingHorizontal: 20, paddingBottom: 40, margin: 10 },
-  header1: { flexDirection: 'row', alignItems: 'center', marginTop: 30, justifyContent: 'space-between' },
+  header1: { flexDirection: 'row', alignItems: 'center', marginTop: 35, justifyContent: 'space-between' },
   headerText: {
     fontSize: 26,
     fontWeight: 'bold',
-    marginBottom: 10,
+    // marginBottom: 10,
     // marginLeft: 5,
         margin:10
 

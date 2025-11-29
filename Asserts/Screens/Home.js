@@ -128,14 +128,14 @@ const App = ({ navigation }) => {
             name: "Reema D.",
             avatar: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=200",
         },
-         {
+        {
             id: "4",
             rating: 5,
             text: "Loved the building blocks! My nephew is obsessed. Super easy checkout and fast shipping.",
             name: "Kiran P.",
             avatar: "https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=200&q=80",
         },
-         {
+        {
             id: "5",
             rating: 5,
             text: "Fast delivery and beautifully packed. The art set kept my kids busy for hours. Highly recommended!",
@@ -851,7 +851,7 @@ const App = ({ navigation }) => {
             <StatusBar backgroundColor="#E8F6FF" barStyle="dark-content" />
             {/* Header */}
             <View style={styles.header}>
-                <TouchableOpacity style={{ marginLeft: 15 }} onPress={() => navigation.navigate("Products")}>
+                <TouchableOpacity style={{ marginLeft: 18 }} onPress={() => navigation.navigate("Products")}>
                     <Icon name="magnify" size={34} color={"navy"} />
                 </TouchableOpacity>
                 <View style={{ alignItems: 'center' }}>
@@ -861,7 +861,7 @@ const App = ({ navigation }) => {
                     />
                 </View>
                 <TouchableOpacity onPress={() => navigation.navigate("Notifications")}>
-                    <Icon name="bell-circle" size={34} color={"navy"} style={{ top: 1 }} />
+                    <Icon name="bell-circle" size={34} color={"navy"} style={{ top: 1, marginRight: 18 }} />
                     {notificationCount > 0 && (
                         <View style={styles.cartBadge}>
                             <Text style={styles.cartBadgeText}>{notificationCount}</Text>
@@ -889,12 +889,12 @@ const App = ({ navigation }) => {
                             Explore playful toys that inspire creativity, spark imagination, and bring joyful moments to your little one’s everyday adventures.
                         </Text>
 
-                        <View style={{ flexDirection: "row", gap: 10, alignItems: 'center', marginLeft: -11 }}>
+                        <View style={{ flexDirection: "row", gap: 10, alignItems: 'center', marginLeft: 8 }}>
                             <TouchableOpacity style={styles.deliveryBadge1}>
-                                <Text style={styles.deliveryText1}>⚡ SAME DAY DELIVERY</Text>
+                                <Text style={styles.deliveryText1}>⚡  SAME DAY DELIVERY</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.deliveryBadge2}>
-                                <Icon name="package-variant" size={20} color={"#1542b2ff"} />
+                                <Icon name="package-variant" size={18} color={"#1542b2ff"} />
                                 <Text style={styles.deliveryText2}> OPEN BOX DELIVERY</Text>
                             </TouchableOpacity>
                         </View>
@@ -1452,8 +1452,8 @@ const styles = StyleSheet.create({
         backgroundColor: "white"
     },
     header: {
-        marginTop: 30,
-        marginHorizontal: 16,
+        marginTop: 40,
+        // marginHorizontal: 16,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -1647,12 +1647,13 @@ const styles = StyleSheet.create({
         width: 280,
     },
     linkText: {
-        fontSize: 16,
+        fontSize: 13,
         color: 'navy',
         fontWeight: 'bold',
         // textDecorationLine: 'underline',
         fontStyle: 'italic',
-        bottom: 10
+        bottom: 10,
+        marginTop: 5
 
     },
     modalOverlay: {
@@ -1850,6 +1851,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingHorizontal: 4,
+        marginRight: 18
     },
     cartBadgeText: {
         color: 'white',
@@ -1890,7 +1892,7 @@ const styles = StyleSheet.create({
         color: "#ff4da6",
     },
     subText1: {
-        fontSize: 14,
+        fontSize: 10,
         color: "#555",
         marginBottom: 20,
     },
@@ -1903,11 +1905,12 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         flexDirection: "row",   // ✅ keep it consistent with badge2
         alignItems: "center",
+        width: 150
     },
     deliveryText1: {
         color: "#0a7f4f",
         fontWeight: "bold",
-        fontSize: 13,
+        fontSize: 10,
     },
 
     deliveryBadge2: {
@@ -1919,11 +1922,13 @@ const styles = StyleSheet.create({
         alignSelf: "flex-start",
         flexDirection: "row",
         alignItems: "center",
+        width: 150
+
     },
     deliveryText2: {
         color: "#1542b2ff",
         fontWeight: "bold",
-        fontSize: 13,
+        fontSize: 10,
         marginLeft: 6, // ✅ adds spacing after icon
     },
 

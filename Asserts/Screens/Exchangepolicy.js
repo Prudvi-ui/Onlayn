@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 35,
     justifyContent: 'space-between',
     margin:10
   },
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 10,
+    // marginBottom: 10,
     textAlign: 'center',
   },
   paragraph: {

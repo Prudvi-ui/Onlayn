@@ -10,7 +10,7 @@ import {
   ActivityIndicator,
   Alert,
   Dimensions,
-StatusBar,
+  StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -23,7 +23,7 @@ const MyOrdersScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [Delivery, setDelivery] = useState([]);
-
+  const [loadingDeliveryId, setLoadingDeliveryId] = useState(null);
 
   const getOrders = async () => {
     setLoading(true);
@@ -106,6 +106,7 @@ const MyOrdersScreen = ({ navigation }) => {
   const getDeliveryData = async (orderId) => {
     if (!orderId) return;
     try {
+      setLoadingDeliveryId(orderId);
       const customerId = await AsyncStorage.getItem('id');
       if (!customerId) return;
 
@@ -119,6 +120,7 @@ const MyOrdersScreen = ({ navigation }) => {
     } catch (error) {
       console.error(error);
       setDelivery(prev => ({ ...prev, [orderId]: null }));
+      setLoadingDeliveryId(null);
     }
   };
 

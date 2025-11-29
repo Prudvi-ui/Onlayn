@@ -521,7 +521,7 @@ export default function ProductDetailScreen({ navigation }) {
 
 
   const onShare = async () => {
-    const appLink = 'https://play.google.com';
+    const appLink = 'https://play.google.com/store/apps/details?id=com.onlayn';
     const firstImageRaw = rawImages.length > 0 ? rawImages[0] : null;
     const imageUrl = firstImageRaw ? `https://apis.toyshack.in/storage/productimages/${firstImageRaw}` : 'https://via.placeholder.com/100';
 

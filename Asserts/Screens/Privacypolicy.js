@@ -34,7 +34,7 @@ export default function PrivacyPolicy({ navigation }) {
           {" "}and{" "}
           <Text
             style={{ color: 'navy' }}
-            onPress={() => Linking.openURL('https://onlayn.toys/')}
+            onPress={() => Linking.openURL('https://play.google.com/store/apps/details?id=com.onlayn')}
           >
             mobile application{" "}
           </Text>.
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // paddingHorizontal: 16,
     // paddingVertical: 10,
-    marginTop: 30,
+    marginTop: 35,
     justifyContent:'space-between',
     margin:10
   },
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: 'bold',
     color: '#333',
-    marginBottom: 10,
+    // marginBottom: 10,
     textAlign: 'center',
   },
   paragraph: {
