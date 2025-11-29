@@ -726,7 +726,7 @@ const App = ({ navigation }) => {
                 source={
                     item.categoryImage
                         ? { uri: `https://apis.toyshack.in/storage/categoryimages/${item.categoryImage}` }
-                        : require('../Images/ActionFigures.png')
+                        : require('../Images/still.png')
                 }
                 style={styles.cardImage6}
             />
@@ -1000,7 +1000,7 @@ const App = ({ navigation }) => {
                                             source={
                                                 !productImageError && item.images
                                                     ? { uri: `https://apis.toyshack.in/storage/productimages/${item.images}` }
-                                                    : require('../Images/ActionFigures.png')
+                                                    : require('../Images/still.png')
                                             }
                                             style={styles.itemImage}
                                             onError={() => setProductImageError(true)}

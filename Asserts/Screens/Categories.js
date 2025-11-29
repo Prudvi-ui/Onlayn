@@ -261,7 +261,7 @@ const CategoryScreen = ({ navigation }) => {
         source={
           item.categoryImage
             ? { uri: `https://apis.toyshack.in/storage/categoryimages/${item.categoryImage}` }
-            : require('../Images/ActionFigures.png')
+            : require('../Images/still.png')
         }
         style={styles.cardImage}
       />
